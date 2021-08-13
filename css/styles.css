@@ -1132,7 +1132,7 @@ a {
 }
 
 .projects .project__items {
-  outline: 2px solid var(--secColor);
+  outline: 1px solid var(--secColor);
 }
 
 .projects .project__items a:hover img {
