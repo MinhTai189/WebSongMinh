@@ -1124,6 +1124,7 @@ a {
   width: 100%;
   max-width: 130rem;
   margin: 0 auto;
+  padding: 0 1rem;
 }
 
 .projects__mansory {
@@ -1131,12 +1132,19 @@ a {
 }
 
 .projects .project__items {
-  position: absolute;
+  outline: 2px solid var(--secColor);
+}
+
+.projects .project__items a:hover img {
+  -webkit-filter: brightness(80%);
+          filter: brightness(80%);
 }
 
 .projects .project__items a img {
   width: 100%;
   height: auto;
+  -webkit-transition: .3s;
+  transition: .3s;
 }
 
 .projects .project__items--info {

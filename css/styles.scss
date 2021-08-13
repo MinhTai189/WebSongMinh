@@ -923,6 +923,7 @@ a {
         width: 100%;
         max-width: 130rem;
         margin: 0 auto;
+        padding: 0 1rem;
     }
 
     &__mansory {
@@ -930,12 +931,17 @@ a {
     }
 
     .project__items {
-        position: absolute;
+        outline: 2px solid var(--secColor);
 
         a {
+            &:hover img {
+                filter: brightness(80%);
+            }
+
             img {
                 width: 100%;
                 height: auto;
+                transition: .3s;
             }
         }
 
