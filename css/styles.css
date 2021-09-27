@@ -462,6 +462,24 @@ a {
   }
 }
 
+.header__container img {
+  position: absolute;
+  top: 50%;
+  width: 90%;
+  max-width: 48rem;
+  left: 50%;
+  -webkit-transform: translate(-50%, -45%);
+          transform: translate(-50%, -45%);
+  opacity: 0.2;
+  z-index: -1;
+}
+
+@media (max-width: 768px) {
+  .header__container img {
+    opacity: 0.1;
+  }
+}
+
 .header__content {
   padding: 0 3rem;
   position: absolute;
