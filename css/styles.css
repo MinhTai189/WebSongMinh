@@ -1547,6 +1547,8 @@ a {
 }
 
 .footer__column-rows > span {
+  -ms-flex-preferred-size: 3.7rem;
+      flex-basis: 3.7rem;
   width: 3.7rem;
   height: 3.7rem;
   background-color: var(--secColor);
@@ -1572,6 +1574,9 @@ a {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
 
 .footer__column-rows .right span {

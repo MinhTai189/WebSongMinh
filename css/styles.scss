@@ -1275,6 +1275,7 @@ a {
             }
 
             & > span {
+                flex-basis: 3.7rem;
                 width: 3.7rem;
                 height: 3.7rem;
                 background-color: var(--secColor);
@@ -1292,6 +1293,7 @@ a {
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
+                flex: 1;
             
                 span{
                     display: block;
