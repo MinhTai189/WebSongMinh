@@ -118,9 +118,15 @@ a {
         }
 
         .nav__logo {
+            width: 5rem;
+            height: 5rem;
+            display: grid;
+            place-items: center;
+
             img {
-                width: 5rem;
-                height: 5rem;
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
             }
         }
 
@@ -240,6 +246,7 @@ a {
         img{
             width: 7.5rem;
             height: 7.5rem;
+            object-fit: contain;
             margin-bottom: 1rem;
         }
 
@@ -365,7 +372,7 @@ a {
         #canvas {
             position: absolute;
             left: 0;
-            bottom: -40%;
+            bottom: -45%;
 
             @include large {
                 bottom: -50%;
@@ -681,6 +688,95 @@ a {
     }
 }
 
+.fields{
+    width: 100%;
+
+    &__container {
+        width: 100%;
+        padding: 0 3rem;
+
+        @include small {
+            padding: 0 0.5rem;
+        }
+    }
+
+    &__row {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        max-width: 110rem;
+        margin: 0 auto;
+
+        @include large {
+            flex-direction: column;
+        }
+    }
+
+    &__right{
+        flex: 2;
+        padding: 1rem 2rem;
+        background-color: #f7f7f7;
+        border-radius: 1.5rem;
+        margin-left: -2rem;
+        z-index: 10;
+        border: 1px solid var(--secColor);
+
+        @include large {
+            margin: 0;
+            margin-top: -20rem;
+            padding: 2rem;
+        }
+
+        @include small {
+            margin: 0;
+            margin-top: -10rem;
+            padding: 1rem;
+        }
+
+        ul{
+            li {
+                i{
+                    font-size: 1.8rem;
+
+                    @include small {
+                        font-size: 1.7rem;
+                    }
+                }
+
+                &:nth-child(odd) .fas::before {
+                        color: var(--firColor)
+                    }
+
+                &:nth-child(even) .fas::before {
+                        color: var(--secColor)
+                    }
+
+                span{
+                    font-size: 1.6rem;
+                    margin-left: .5rem;
+                    line-height: 1.8;
+
+                    @include small {
+                        font-size: 1.4rem;
+                        line-height: 1.6;
+                    }
+                }
+            }
+        }
+    }
+
+    &__left{
+        flex: 1;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(95%);
+        }
+    }
+}
+
 .objectives {
     width: 100%;
     height: auto;
@@ -852,7 +948,7 @@ a {
 
         .great-projects__table {
             width: 100%;
-            max-width: 120rem;
+            max-width: 130rem;
             margin: 0 auto;
             overflow: auto;
 
@@ -1144,146 +1240,69 @@ a {
 
     &__container {
         width: 100%;
+        width: 100%;
+        max-width: 120rem;
+        margin: 0 auto;
+        padding: 4rem 1rem;
     }
 
     &__flex {
-        width: 100%;
-        padding: 5rem 2rem;
         display: flex;
-        flex-wrap: wrap;
+    }
 
-        @include large {
-            padding: 2rem 1rem;
+    &__column {
+        &-1{
+
         }
 
-        .column {
-            padding: 0 2rem;
+        &-2{
 
-            @include large {
-                padding: 2rem 3rem;
-            }
-
-            @include medium {
-                padding: 2rem 1rem;
-            }
-
-            @include medium {
-                padding: 2rem 0.5rem;
-            }
-
-            .column__title {
-                font-size: 2.2rem;
-                margin-bottom: 1rem;
-
-                @include large {
-                    font-size: 2.1rem;
-                }
-            }
         }
 
-        .column--1{
-            flex: 1.5;
-
-            @include large {
-                order: 2;
-                flex: 1;
-            }
-
-            @include large {
-                flex: 100%;
-            }
-
-            ol {
-                padding-left: 1.3rem;
-
-                li {
-                    font-size: 1.4rem;
-                    padding: .3rem 0;
-                }
-
-                @include large {
-                    padding-left: 2rem 
-                }
-            }
+        &-title {
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
+            border-bottom: 2px solid var(--secColor);
+            padding-bottom: .5rem;
+            text-transform: uppercase;
         }
 
-        .column--2{
-            flex: 1.5;
+        &-rows {
+            display: flex;
 
-            @include large {
-                order: 3;
-                flex: 1;
+            &:not(:last-child) {
+                margin-bottom: 1.5rem;
             }
 
-            @include large {
-                flex: 100%;
-            }
+            & > span {
+                width: 3.7rem;
+                height: 3.7rem;
+                background-color: var(--secColor);
+                display: grid;
+                place-items: center;
+                border-radius: 50%;
 
-            .label {
-                font-weight: 700;
-                font-size: 1.6rem;
-            }
-
-            p {
-                font-size: 1.4rem;
-                display: block;
-                padding: .2rem 0;
-            }
-
-            .contact {
-                &__row:nth-child(1) {
-                    padding: 1.6rem 0 0.7rem;
-
-                    @include large {
-                        padding: .7rem 0; 
-                    }
-                }
-
-                span {
-                    display: inline-block;
-                    margin-right: .4rem;
-                    font-size: 1.6rem;
-                    font-weight: 700;
-                }
-
-                a {
-                    font-size: 1.4rem;
-                    transition: color .1s ease-in;
-
-                    &:hover {
-                        color: var(--firColor);
-                    }
+                .fas {
+                    font-size: 1.5rem;
+                    color: #f7f7f7;
                 }
             }
-        }
 
-        .column--3{
-            flex: 1;
-
-            @include large {
-                order: 1;
-                flex: 100%;
-            }
-
-            .certificate {
+            .right{ 
                 display: flex;
+                flex-direction: column;
+                justify-content: center;
+            
+                span{
+                    display: block;
+                    margin-left: 1.5rem;
+                    font-size: 1.5rem;
+                    transition: .3s;
 
-                img {
-                    width: 90%;
-                    border: 1px solid #ccc;
-                }
-
-                .cssbox {
-                    a {
-                        display: flex;
-                        justify-content: space-around;
+                    .hover:hover {
+                        color: var(--secColor);
                     }
-                    
-                }
-
-                @include large {
-                    margin-top: 2.5rem;
-                }
+                }   
             }
         }
     }

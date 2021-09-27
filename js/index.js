@@ -7,7 +7,7 @@ const start = () => {
 
     runSlider();
     loadDataTable(dataTable, "aPart");
-    clickBtnSeeMore(dataTable);
+    clickBtnSeeMore(dataTable, fileName);
     handleScrollToElement();
     handleDisplayNav();
     handleSelectVideo();
@@ -15,19 +15,20 @@ const start = () => {
     window.addEventListener('resize', handleScrollToElement);
 }
 
-const clickBtnSeeMore = (dataTable) => {
+const clickBtnSeeMore = (dataTable, fileName) => {
     const seeMore = document.querySelector("#see-more");
     const btnSeeMore = document.querySelector(".see-more");
+    const text = fileName.includes('eng') ? ['See more', 'Collapse'] : ['Xem thêm', 'Thu gọn'];
 
     seeMore.addEventListener("click", () => {
         seeMore.classList.toggle("active");
 
         if (seeMore.classList.contains('active')) {
-            btnSeeMore.innerHTML = "Thu gọn";
+            btnSeeMore.innerHTML = text[1];
             loadDataTable(dataTable, "all")
         }
         else {
-            btnSeeMore.innerHTML = "Xem thêm";
+            btnSeeMore.innerHTML = text[0];
             loadDataTable(dataTable, "aPart");
         }
     });
@@ -126,6 +127,11 @@ const handleScrollToElement = () => {
             height: mission.offsetHeight
         },
         {
+            element: fields,
+            offset: fields.offsetTop,
+            height: fields.offsetHeight
+        },
+        {
             element: mainResource,
             offset: mainResource.offsetTop,
             height: mainResource.offsetHeight
@@ -135,11 +141,6 @@ const handleScrollToElement = () => {
             offset: greatProjects.offsetTop,
             height: greatProjects.offsetHeight
         },
-        {
-            element: fields,
-            offset: fields.offsetTop,
-            height: fields.offsetHeight
-        }
     ]
 
     navItems.forEach((item, index) => {
@@ -184,10 +185,10 @@ const windowScroll = offsetElements => {
             addActiveNavItem(offsetElements[2].item);
         else if (offsetElements[3].offset - 80 <= offset && offsetElements[3].height + offsetElements[3].offset > offset)
             addActiveNavItem(offsetElements[3].item);
-        else if (document.body.offsetHeight - screen.height <= offset || offsetElements[5].offset - 80 <= offset)
-            addActiveNavItem(offsetElements[5].item);
         else if (offsetElements[4].offset - 80 <= offset && offsetElements[4].height + offsetElements[4].offset > offset)
             addActiveNavItem(offsetElements[4].item);
+        else if (offsetElements[5].offset - 80 <= offset && offsetElements[5].height + offsetElements[5].offset > offset)
+            addActiveNavItem(offsetElements[5].item);
     })
 }
 
